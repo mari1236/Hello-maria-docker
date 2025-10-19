@@ -1,11 +1,8 @@
+// just build all maven file
+
 #build project with maven
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /home/app
-COPY ./pom.xml /home/app/pom.xml
-COPY ./src/main/java/com/Hello_maria/dockerLearning/DockerLearningApplication.java /home/app/src/main/java/com/Hello_maria/dockerLearning/DockerLearningApplication.java
-RUN mvn -f /home/app/pom.xml clean package
-
-
 COPY . .
 RUN mvn -f /home/app/pom.xml clean package
 
